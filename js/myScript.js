@@ -1,32 +1,42 @@
+
 $(document).ready(function()
 {
-	//https://www.jaypan.com/tutorial/highlighting-html-columns-jquery-and-css
-	//http://codepen.io
-	// function-scoped variable to store the class name. 
-	var cellClassName = false;
-	// Set jQuery .hover() on all li
+var cellClassName = false;
+
 	
-	$("li").hover
-	(
-		// Mouse over function
-		function()
-		{
-        // Save this class name to the global variable
-			cellClassName = $(this).attr("class");
-			
-			//if($("#cellClassName").hasClass("col1")){
-			
-			// Add the .hover_class to all elements that have that class
-			$("." + cellClassName).addClass("hover_class");
-		},
-		// This second function is our mouse out function
-		function()
-		{
-			// Remove the .hover_class from the elements that have
-			$("." + cellClassName).removeClass("hover_class");
-		}
+$("li").hover(function(){
+ $("." +cellClassName).removeClass("hover_blue");
+ $("." + cellClassName).removeClass("hover_red"); 
+ $("." + cellClassName).removeClass("hover_green");    
+ 
+ cellClassName = $(this).attr("class");
+
+    $("li").hover(function(){
+       
+	if ( $(this).hasClass("col1, red")) {
+       $("." + cellClassName).addClass("hover_red");
+	}
+    
+});
+    $("li").hover(function(){
+	
+	if ( $(this).hasClass("col2, blue")) { 
+       $("." + cellClassName).addClass("hover_blue");
+	}
+    
+});
+    
+    $("li").hover(function(){
+		
+	if ( $(this).hasClass("col3, green")) { 
+       $("." + cellClassName).addClass("hover_green");
+	}
+    
+});
+		                       },
+	function(){}
 	);
 });
-
+    
 
 
